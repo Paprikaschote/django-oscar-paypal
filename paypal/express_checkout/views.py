@@ -104,7 +104,7 @@ class PaypalRedirectView(CheckoutSessionMixin, RedirectView):
 
         if settings.DEBUG:
             # Determine the local server's hostname to use when in testing mode
-            params['host'] = self.request.META['HTTP_HOST']
+            params['host'] = self.request.headers['host']
 
         if user.is_authenticated:
             params['user'] = user
